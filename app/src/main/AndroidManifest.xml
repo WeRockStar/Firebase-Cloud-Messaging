@@ -24,8 +24,7 @@
             </intent-filter>
         </service>
 
-        <service android:name=".FCMInstanceIDService"
-            >
+        <service android:name=".FCMInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>

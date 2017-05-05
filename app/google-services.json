@@ -1,74 +1,27 @@
 {
   "project_info": {
-    "project_number": "1072050602628",
-    "firebase_url": "https://learn-17a83.firebaseio.com",
-    "project_id": "learn-17a83",
-    "storage_bucket": "learn-17a83.appspot.com"
+    "project_number": "886069741471",
+    "firebase_url": "https://messagingdemo-54647.firebaseio.com",
+    "project_id": "messagingdemo-54647",
+    "storage_bucket": "messagingdemo-54647.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1072050602628:android:74fcb83d0df5c6c0",
-        "android_client_info": {
-          "package_name": "com.werockstar.firebaseanalytics"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1072050602628-3d5fgo4dt6kfq0spil0j5j9p6r20qvkr.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.werockstar.firebaseanalytics",
-            "certificate_hash": "D1D8B0D58CEC2F30D7571F28E9452134400D1834"
-          }
-        },
-        {
-          "client_id": "1072050602628-ro0ceuo432bsljfqsqtmdkoehsoihenh.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDYf38qzHv3hzgwlNbereJ3pw86RSnyNVw"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1072050602628:android:620046bd3a3869ad",
+        "mobilesdk_app_id": "1:886069741471:android:6396542a1bdbf824",
         "android_client_info": {
           "package_name": "com.werockstar.firebasecloudmessaging"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1072050602628-i3ma63qsldhun991arfg5qrm5bq1mvm6.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.werocksta.firebasecloudmessaging",
-            "certificate_hash": "D1D8B0D58CEC2F30D7571F28E9452134400D1834"
-          }
-        },
-        {
-          "client_id": "1072050602628-ro0ceuo432bsljfqsqtmdkoehsoihenh.apps.googleusercontent.com",
+          "client_id": "886069741471-clvjb1po0smim6qud8165rlqp4et4vrt.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDYf38qzHv3hzgwlNbereJ3pw86RSnyNVw"
+          "current_key": "AIzaSyCXAPaUIfCKcDayiinyikpsupS27tAbR24"
         }
       ],
       "services": {
