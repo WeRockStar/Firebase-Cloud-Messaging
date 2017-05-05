@@ -1,4 +1,4 @@
-package com.werocksta.firebasecloudmessaging;
+package com.werockstar.firebasecloudmessaging;
 
 
 import android.app.NotificationManager;

@@ -1,4 +1,4 @@
-package com.werocksta.firebasecloudmessaging;
+package com.werockstar.firebasecloudmessaging;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
