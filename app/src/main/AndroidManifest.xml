@@ -18,13 +18,13 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".FCMService">
+        <service android:name=".FcmService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
-        <service android:name=".FCMInstanceIDService">
+        <service android:name=".FcmInstanceIdService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
