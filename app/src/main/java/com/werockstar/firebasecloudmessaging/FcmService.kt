@@ -8,7 +8,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.media.RingtoneManager
 import android.support.v7.app.NotificationCompat
-import android.util.Log
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
@@ -16,14 +15,12 @@ class FcmService : FirebaseMessagingService() {
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
 
-        Log.d(TAG, "From: " + remoteMessage.from)
-        Log.d(TAG, "Notification Message Body: " + remoteMessage.notification.body)
-        sendNotification(remoteMessage.notification)
+        showNotification(remoteMessage)
     }
 
-    fun sendNotification(notification: RemoteMessage.Notification) {
+    private fun showNotification(remoteMessage: RemoteMessage) {
         val intent = Intent(this, MainActivity::class.java)
-        intent.putExtra(MESSAGE, notification.body)
+        intent.putExtra(MESSAGE, remoteMessage.notification.body)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
 
         val pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent, PendingIntent.FLAG_ONE_SHOT)
@@ -31,8 +28,8 @@ class FcmService : FirebaseMessagingService() {
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notificationBuilder = NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.ic_launcher)
-                .setContentTitle(notification.title)
-                .setContentText(notification.body)
+                .setContentTitle(remoteMessage.notification.title)
+                .setContentText(remoteMessage.notification.body)
                 .setAutoCancel(true)
                 .setColor(Color.parseColor("#4B8A08"))
                 .setSound(defaultSoundUri)
@@ -44,7 +41,7 @@ class FcmService : FirebaseMessagingService() {
     }
 
     companion object {
-        val TAG = FcmService::class.java.simpleName
-        val MESSAGE = "MESSAGE"
+        private val TAG = FcmService::class.java.simpleName
+        private val MESSAGE = "MESSAGE"
     }
 }

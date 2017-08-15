@@ -1,6 +1,7 @@
 package com.werockstar.firebasecloudmessaging
 
 
+import android.util.Log
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.iid.FirebaseInstanceIdService
 
@@ -9,11 +10,15 @@ class FcmInstanceIdService : FirebaseInstanceIdService() {
     override fun onTokenRefresh() {
         super.onTokenRefresh()
 
-        val refreshedToken = FirebaseInstanceId.getInstance().token
-        sendRegistrationToServer(refreshedToken)
+        val token = FirebaseInstanceId.getInstance().token
+        sendRegistrationToServer(token)
     }
 
-    private fun sendRegistrationToServer(refreshedToken: String?) {
+    private fun sendRegistrationToServer(token: String?) {
+        Log.d(TAG, token)
+    }
+
+    private fun unregister() {
 
     }
 

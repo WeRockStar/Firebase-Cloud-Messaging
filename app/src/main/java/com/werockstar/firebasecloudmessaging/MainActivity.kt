@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
+import butterknife.OnClick
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var tvMessage: TextView
     private lateinit var btnSubscribe: Button
     private lateinit var btnUnsubscribe: Button
+    private lateinit var tvToken: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,16 +21,17 @@ class MainActivity : AppCompatActivity() {
         tvMessage = findViewById(R.id.tvMessage) as TextView
         btnSubscribe = findViewById(R.id.btnSubscribe) as Button
         btnUnsubscribe = findViewById(R.id.btnUnsubscribe) as Button
+        tvToken = findViewById(R.id.tvToken) as TextView
 
         tvMessage.text = intent.getStringExtra("MESSAGE") ?: ""
 
     }
 
-    fun onUnsubscribe() {
+    @OnClick(R.id.btnUnsubscribe) fun onUnsubscribe() {
 
     }
 
-    fun onSubscribe() {
+    @OnClick(R.id.btnSubscribe) fun onSubscribe() {
 
     }
 
