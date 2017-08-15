@@ -1,7 +1,9 @@
 package com.werockstar.firebasecloudmessaging
 
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import butterknife.OnClick
@@ -24,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         tvToken = findViewById(R.id.tvToken) as TextView
 
         tvMessage.text = intent.getStringExtra("MESSAGE") ?: ""
-
     }
 
     @OnClick(R.id.btnUnsubscribe) fun onUnsubscribe() {

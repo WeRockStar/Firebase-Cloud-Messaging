@@ -1,8 +1,6 @@
-package com.werockstar.firebasecloudmessaging
+package com.werockstar.firebasecloudmessaging.service
 
-import okhttp3.Headers
 import okhttp3.Request
-import okhttp3.internal.http2.Header
 
 object FirebaseHeader {
     val request = Request.Builder()

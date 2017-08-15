@@ -1,0 +1,22 @@
+{
+  "to": "topics/news",
+  "dry_run": true,
+  "registration_ids": [
+  ],
+  "condition": "",
+  "priority": "high",
+  "time_to_live": "",
+  "data": {
+    "imageUrl": ""
+  },
+  "notification": {
+    "title": "",
+    "body": "",
+    "android_channel_id": "",
+    "icon": "",
+    "sound": "",
+    "tag": "",
+    "color": "",
+    "click_action": ""
+  }
+}
