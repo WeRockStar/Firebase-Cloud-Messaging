@@ -12,8 +12,6 @@
         android:id="@+id/btnSubscribe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:text="Subscribe Topic" />
 
     <Button
@@ -21,17 +19,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:text="Unsubscribe Topic" />
+
+    <Button
+        android:id="@+id/btnToken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnSubscribe"
+        android:layout_centerHorizontal="true"
+        android:text="Show Token" />
 
     <TextView
         android:id="@+id/tvMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnSubscribe"
+        android:layout_below="@+id/btnToken"
         android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"
         android:text="Hello World!" />
 
     <TextView
