@@ -1,10 +1,8 @@
 package com.werockstar.firebasecloudmessaging
 
 import android.os.Bundle
-import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.widget.Button
 import android.widget.TextView
 import butterknife.ButterKnife
 import butterknife.OnClick
@@ -15,18 +13,17 @@ import com.werockstar.firebasecloudmessaging.model.FirebaseDAO
 import com.werockstar.firebasecloudmessaging.model.NotificationDAO
 import com.werockstar.firebasecloudmessaging.service.APIService
 import io.reactivex.Observable
-import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var tvMessage: TextView
-    private lateinit var btnSubscribe: Button
-    private lateinit var btnUnsubscribe: Button
     private lateinit var tvToken: TextView
-    private lateinit var btnToken: Button
+    private val disposable = CompositeDisposable()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,10 +33,7 @@ class MainActivity : AppCompatActivity() {
         ButterKnife.bind(this)
 
         tvMessage = findViewById(R.id.tvMessage) as TextView
-        btnSubscribe = findViewById(R.id.btnSubscribe) as Button
-        btnUnsubscribe = findViewById(R.id.btnUnsubscribe) as Button
         tvToken = findViewById(R.id.tvToken) as TextView
-        btnToken = findViewById(R.id.btnToken) as Button
 
         tvMessage.text = intent.getStringExtra("MESSAGE") ?: ""
     }
@@ -55,16 +49,15 @@ class MainActivity : AppCompatActivity() {
         val firebaseDAO = FirebaseDAO("/topics/sport", "high", DataDAO("https://firebase.google.com/_static/images/firebase/touchicon-180.png"), NotificationDAO("Sport title", "Sport body"))
         val api = APIService()
 
-        Observable.fromCallable({
-            api.okHttpClient.newCall(api.request(firebaseDAO)).execute().body()?.string()
-        }).subscribeOn(Schedulers.io())
+        disposable.add(Observable.fromCallable({ api.okHttpClient.newCall(api.request(firebaseDAO)).execute().body()?.string() }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    Log.d("Response", it)
-                }, {
-                    Log.d("Error", it.message)
+                .doOnError({
+                    tvMessage.text = it.message
                 })
-
+                .subscribe({
+                    tvMessage.text = "Success"
+                })
+        )
 
     }
 
@@ -76,6 +69,11 @@ class MainActivity : AppCompatActivity() {
     @OnClick(R.id.btnSubscribe)
     fun onSubscribe() {
         FirebaseMessaging.getInstance().subscribeToTopic("sport")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        disposable.clear()
     }
 
 }
