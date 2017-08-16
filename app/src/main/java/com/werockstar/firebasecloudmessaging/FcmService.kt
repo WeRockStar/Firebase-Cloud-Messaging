@@ -22,7 +22,7 @@ class FcmService : FirebaseMessagingService() {
 
     private fun showNotification(remoteMessage: RemoteMessage) {
         val notificationData = remoteMessage.data
-        val imageUrl = notificationData["image"]
+        val imageUrl = notificationData["url"]
         val notification = remoteMessage.notification
 
         val intent = Intent(this, MainActivity::class.java)

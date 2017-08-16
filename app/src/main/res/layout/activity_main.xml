@@ -46,4 +46,12 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
         android:textColor="@android:color/black" />
+
+    <Button
+        android:id="@+id/btnSendTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvToken"
+        android:layout_centerHorizontal="true"
+        android:text="Send Topic" />
 </RelativeLayout>
