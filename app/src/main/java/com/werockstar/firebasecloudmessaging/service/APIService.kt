@@ -18,7 +18,4 @@ class APIService {
             .url("https://fcm.googleapis.com/fcm/send")
             .post(create)
             .build()
-
-    fun reponse() = okHttpClient().newCall(request()).execute().body()?.string()
-
 }
